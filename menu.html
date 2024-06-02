@@ -1,0 +1,985 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Karahisaroğulları Bakery</title>
+
+    <!--font awesome cdn link-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+    <!--custom style file link-->
+    <link rel="stylesheet" href="css/style.css">
+
+    <!--swiper link-->
+    <link rel="stylesheet" href="https://unpkg.com/swiper@8/swiper-bundle.min.css"/>
+
+
+</head>
+<style>
+    
+
+:root{
+    --main-color:#443;
+    --border-radius:95% 4% 97% 5%/4% 94% 3% 95%;
+    --border-radius-hover:4% 95% 6% 95%/95% 4% 92% 5%;
+    --border:.2rem solid var(--main-color);
+    --border-hover:.2rem dashed var(--main-color);
+    
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    outline: none;
+    border: none;
+    box-shadow: none;
+    font-family: 'Poppins', sans-serif;
+    text-decoration: none;
+    transition: all .2s linear;
+    text-transform: capitalize;
+    
+}
+
+html{
+    font-size:62.5%;
+    overflow-x: hidden;
+    scroll-padding-top: 6rem;
+    scroll-behavior: smooth;
+    margin-left: -60px;
+    
+}
+
+html::-webkit-scrollbar{
+    width: 1rem;
+    height: .5rem;
+}
+
+html::-webkit-scrollbar-thumb{
+    background: #666;
+}
+
+html::-webkit-scrollbar-track{
+    background: transparent;
+}
+
+.btn{
+    display: inline-block;
+    padding: .9rem 1.5rem;
+    border-radius: var(--border-radius);
+    color: var(--main-color);
+    border: var(--border);
+    cursor: pointer;
+    margin-top: 1rem;
+    font-size: 1.7rem;
+    margin-left: 8rem;
+    
+}
+
+.btn:hover{
+    border: var(--border-hover);
+    border-radius: var(--border-radius-hover);
+}
+
+#menu-btn{
+    font-size: 3rem;
+    color: var(--main-color);
+    cursor: pointer;
+    display: none;
+}
+
+header{
+    display: flex;
+    height: 10vh;
+    align-items: center;
+    justify-content: space-between;
+    padding:.2rem 9%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    background: #ffff;
+    box-shadow: 0 .5rem 1rem rgba(0,0,0,.1);
+}
+
+header .logo{
+    font-size: 2rem;
+    font-weight: bolder;
+    color:var(--main-color);
+    margin-left: -10px;
+    
+}
+
+header .logo i{
+    font-size: 1.5rem;
+    color: brown;
+    padding: .5rem;
+}
+
+header .navbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 35%;
+}
+
+header .navbar a {
+    font-size: 1.8rem;
+    color: var(--main-color);
+    margin: 0 1rem;
+    text-decoration: none;
+    text-transform: capitalize;
+    position: relative; 
+}
+
+
+header .navbar a:hover {
+    color: rgb(179, 23, 23); 
+}
+
+
+header .navbar a::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -3px; 
+    width: 100%;
+    height: 2px; 
+    background-color: transparent; 
+    transition: background-color 0.3s ease; 
+}
+
+
+header .navbar a:hover::after {
+    background-color: rgb(179, 23, 23); 
+
+}
+
+
+header .icons {
+    color: #000;; 
+    font-size: 3rem;
+}
+
+header .icons div:hover {
+    color: rgb(179, 23, 23); 
+}
+
+header .btn{
+    margin-top: 0;
+}
+
+section{
+    padding: 2rem 9%;
+}
+
+.heading{
+    font-size: 6rem;
+    text-transform: uppercase;
+    color: #aaa;
+    -webkit-text-stroke: .05rem var(--main-color);
+    letter-spacing: .2rem;
+    text-align: center;
+    pointer-events: none;
+    position: relative;
+}
+
+/*home section styling*/
+.home{
+    padding-top: 10rem;
+    min-height: 80vh;
+    background: url(arka\ plan\ foto\ 4.png) no-repeat;
+    background-position: center;
+    background-size: cover;
+
+}
+
+.home .row{
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 2rem;
+}
+
+.home .row .content{
+    flex: 1 1 42rem;
+}
+
+.home .row .content h3{
+    font-size: 6.2rem;
+    color: var(--main-color);
+    text-transform: uppercase;
+    margin-left: 8rem;
+}
+
+.home .row .img{
+    flex: 1 1 42rem;
+    padding-top: 10rem;
+    text-align: center;
+}
+
+.home .row .img img{
+    height: 45rem;
+    animation: float 4s linear infinite;
+}
+
+@keyframes float{
+    0%, 100%{
+        transform: translateY(0rem);
+    }
+    50%{
+        transform: translateY(-7rem);
+    }
+}
+
+.home .image-slider{
+    text-align: center;
+    padding: 3rem 0;
+}
+
+.home .image-slider img{
+    height: 15rem;
+    margin: 0 .5rem;
+    cursor: pointer;
+    margin-top: 10rem;
+    margin-top: 0rem;
+}
+
+.home .image-slider img:hover{
+    transform: translateY(-2rem);
+}
+
+
+
+/*about styling*/
+.about .heading span{
+    font-size: 3rem;
+    -webkit-text-stroke: .07rem black;
+    color: transparent;
+}
+
+.about .row{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 2.5rem;
+}
+
+.about .row .image{
+    flex: 1 1 42rem;
+}
+
+.about .row .image img{
+    width: 100%;
+    animation: aImage 4s linear infinite;
+}
+
+@keyframes aImage {
+    0%,100%{
+        transform: scale(.9);
+        border-radius: var(--border-radius-hover);
+    }
+    50%{
+        transform: scale(.8);
+        border-radius: var(--border-radius);
+    }
+    
+}
+
+.about .row .content{
+    flex: 1 1 42rem;
+}
+
+.about .row .content .title{
+    color: var(--main-color);
+    font-size: 3rem;
+    line-height: 1.8;
+}
+
+.about .row .content p{
+    color: var(--main-color);
+    font-size: 1.5rem;
+    padding: 1rem 0;
+    line-height: 1.8;
+}
+
+.about .row .content .icons-container{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 1rem;
+    margin-top: 3rem;
+}
+
+.about .row .content .icons-container .icons{
+    flex: 1 1 15rem;
+    padding: 1.5rem;
+    text-align: center;
+    border: var(--border);
+    border-radius: var(--border-radius);
+}
+
+.about .row .content .icons-container .icons img{
+    height: 10rem;
+}
+
+.about .row .content .icons-container .icons h3{
+    font-size: 1.7rem;
+    padding-top: 1rem;
+    color: var(--main-color);
+}
+
+/*menu styling*/
+.menu .heading span{
+    font-size: 3rem;
+    -webkit-text-stroke: .07rem black;
+    color: transparent;
+}
+
+.menu{
+    background: url(arka\ plan\ foto\ 3.jpg) no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+
+.menu .box-container{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    justify-content: center;
+}
+
+.menu .box-container .box{
+    flex: 1 1 42rem;
+    padding: 2rem;
+    border: var(--border);
+    border-radius: var(--border-radius);
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    margin-left: 6rem;
+}
+
+.menu .box-container .box:hover{
+    border: var(--border-hover);
+    border-radius: var(--border-radius-hover);
+}
+
+.menu .box-container .box img {
+    height: 18rem;
+    border: 1px solid #000; /* Çerçeve rengi ve kalınlığı */
+    border-radius: 20%; /* Çerçeve yuvarlaklığı */
+    padding: 2px; /* İsteğe bağlı: Çerçeveden fotoğrafa boşluk ekler */
+}
+
+.menu .box-container .box .content h3{
+    font-size: 2.2rem;
+    color: var(--main-color);
+    line-height: 1.8;
+}
+
+.menu .box-container .box .content p{
+    font-size: 1.6rem;
+    color: var(--main-color);
+    line-height: 1.8;
+    padding: 1rem 0;
+}
+
+.menu .box-container .box .content span{
+    font-size: 2.5rem;
+    color: brown;
+    line-height: 1.8;
+}
+
+/*footer styling*/
+.footer .box-container{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(23rem, 1fr));
+    gap:1.5rem;
+}
+
+.footer .box-container .box h3{
+    font-size: 2.5rem;
+    padding:1rem 0;
+    color:var(--main-color);
+}
+
+.footer .box-container .box a{
+    display: block;
+    font-size: 1.5rem;
+    padding:1rem 0;
+    color:var(--main-color);
+}
+
+.footer .box-container .box a i{
+    padding-right: .5rem;
+}
+
+.footer .box-container .box a:hover i{
+    padding-right: 2rem;
+}
+
+.footer .credit{
+    text-align: center;
+    font-size: 2rem;
+    padding:2rem 1rem;
+    margin-top: 1rem;
+    color:var(--main-color);
+}
+
+.footer .credit span{
+    border-bottom: var(--border-hover);
+}
+
+
+/*media queries*/
+@media(max-width:991px) {
+    html{
+        font-size: 55%;
+    }
+
+    header{
+        padding:0 2rem;
+    }
+
+    section{
+        padding: 2rem;
+    }
+}
+
+@media(max-width:768px) {
+    #menu-btn{
+        display: initial;
+    }
+
+    #menu-btn.fa-times{
+        transform: rotate(180deg);
+    }
+
+    header .navbar{
+        position: absolute;
+        top: 99%;
+        left: 0; right: 0;
+        background: #fff;
+        display: block;
+        width: 100%;
+        clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
+    }
+
+    header .navbar.active{
+        clip-path:polygon(0 0, 100% 0, 100% 100%, 0 100%) ;
+    }
+
+    header .navbar a{
+        display: block;
+        padding: 1.5rem 2rem;
+        margin: 0;
+        font-size: 2.1rem;
+    }
+
+    .home{
+        text-align: center;
+        height:fit-content;
+    }
+
+    .home .row .content h3{
+        font-size: 4rem;
+    }
+
+    .home .row .img img:hover{
+        transform: translateY(-4rem);
+    }
+
+    .home .row .img img{
+        height: 27rem !important;
+        width: 23rem !important;
+    }
+
+    .home .image-slider img{
+        margin-top: 7rem;
+    }
+
+    .heading{
+        font-size: 4rem;
+    }
+
+    .heading span{
+        font-size: 2.5rem;
+    }
+
+    .menu .box-container .box{
+        margin-left: 1.5rem;
+    }
+
+    .menu .box-container .box img{
+        margin-left: -5rem;
+    }
+}
+
+@media(max-width:450px) {
+    html{
+        font-size: 50%;
+    }
+
+    .home .row .img img{
+        height:auto;
+        width: 100%;
+    }
+}
+
+
+</style>
+<body>
+    
+    <!--header-->
+    <header>
+
+        <a href="#" id="menu-btn"><i class="fas fa-bars"></i></a>
+
+        <div class="logo">
+            <span>Karasalihoğulları<i class="fas fa-mug-hot"></i>Bakery</span>
+        </div>
+
+        <nav class="navbar">
+            <a href="#home">Ana sayfa</a>
+            <a href="#about">Hakkımızda</a>
+            <a href="#menu">Menü</a>
+            <a href="#review">Özel Gün Pastaları</a>
+            <a href="#book">Diğer</a>
+        </nav>
+
+        <a href="#book" class="btn"> Bir Masa Rezervasyonu</a>
+
+
+        <div class="icons">
+            <div class="fas fa-search" id="search-btn"></div>
+            <div class="fas fa-shopping-cart" id="cart-btn"></div>
+            <div class="fas fa-bars" id="menu-btn"></div>
+        </div>
+    
+    </header>
+
+
+    <section class="home" id="home">
+        <div class="row">
+            <div class="content">
+                <h3>El Yapımı Günlük Tap Taze Pastalar</h3>
+                <a href="#" class="btn">Şimdi Bir Tane Satın Al</a>
+            </div>
+
+            <div class="img">
+                <img src="" class="main-home-image">
+            </div>
+        </div>
+
+        <div class="image-slider">
+            <img src="cookie.png" alt="">
+            <img src="glass.png" alt="">
+            <img src="cake.png" alt="">
+            
+        </div>
+    </section>
+
+
+
+    <section class="menu" id="menu">
+        <h1 class="heading">Menü
+            <br>
+        </h1>
+
+        <div class="box-container">
+            <a href="#" class="box">
+                <img src="kelebek.png" alt="">
+                <div class="content">
+                    <h3>Kelebek Dünyası</h3>
+                    <p>Kelebek dünyası pastası, çocukların ve hatta yetişkinlerin bile ilgisini çeken görsel açıdan etkileyici bir seçenek. Renkli ve eğlenceli görüntüsüyle herkesin yüzünde bir gülümseme oluşturabilir. 
+                    Hem lezzetli hem de estetik açıdan tatmin edici bir deneyim sunuyor.</p>
+                    <span>549,99₺</span>
+                </div>
+            </a>
+
+            <a href="#" class="box">
+                <img src="mavi.png" alt="">
+                <div class="content">
+                    <h3>Mavi Rüyası</h3>
+                    <p>"Mavi Rüyası" pastası, gökyüzü ve denizi anımsatan mavi tonlarıyla öne çıkan, huzur veren bir pasta. Lezzetli kek tabanıyla birleşen bu görsel şölen, her diliminde bir rüyadan çıkmış gibi bir deneyim sunuyor.
+                    Her lokmada huzur dolu bir yolculuğa çıkarıyor.</p>
+                    <span>549,99₺</span>
+                </div>
+            </a>
+
+            <a href="#" class="box">
+                <img src="love.png" alt="">
+                <div class="content">
+                    <h3>I love you</h3>
+                    <p>"I Love You" pastası, duygusal bir ifadeyi tatlı bir şekilde ileten özel bir lezzet. Bu pastada sadece lezzetli bir kek değil, aynı zamanda sevgi ve şefkatin tadı da var.
+                    İçten gelen duyguları ifade etmenin en tatlı yolu!</p>
+                    <span>549,99₺</span>
+                </div>
+            </a>
+
+            <a href="#" class="box">
+                <img src="bitter.png" alt="">
+                <div class="content">
+                    <h3>Bitter Dünyası</h3>
+                    <p>"Bitter Dünyası" pastası, genellikle yoğun kakao içeriğiyle karakterize edilen ve tatlı ile hafif acı bir denge sunan bir pastadır. Bitter çikolata sevenler için mükemmel bir tercih olabilir. 
+                    Zengin ve doyurucu bir lezzete sahip olan bu pasta, çikolata tutkunlarını mutlu edecek bir seçenek.
+                    Her diliminde yoğun bir çikolata lezzeti ve karmaşık bir tat profili sunar.</p>
+                    <span>549,99₺</span>
+                </div>
+            </a>
+
+            <a href="#" class="box">
+                <img src="meyve.png" alt="">
+                <div class="content">
+                    <h3>Meyve Şöleni</h3>
+                    <p>"Meyve Şöleni" pastası, genellikle meyve dolgusu ve meyve dilimleriyle süslenmiş bir pastadır. Bu pastada taze meyveler, genellikle çilek, muz, kivi, ananas, ve çeşitli meyve sosları kullanılır.
+                    Renkli ve göz alıcı bir görünüme sahip olan bu pasta, hem hafif hem de taze bir lezzet sunar.
+                    Yoğun bir tatlı istemeyenler için ideal bir seçenek olabilir. Her diliminde meyve şöleni gibi bir lezzet serüveni sunar.</p>
+                    <span>549,99₺</span>
+                </div>
+            </a>
+
+            <a href="#" class="box">
+                <img src="karamel.png" alt="">
+                <div class="content">
+                    <h3>Caramelleto</h3>
+                    <p>"Caramellatto" pastası, karamel ve kahve lezzetlerinin eşsiz bir birleşimi.
+                    Tatlı ve hafif acı notalar, her lokmada lezzetli bir deneyim sunuyor.</p>
+                    <span>549,99₺</span>
+                </div>
+            </a>
+            <a href="#" class="box">
+                <img src="top.png" alt="">
+                <div class="content">
+                    <h3>Top Top</h3>
+                    <p>Doğum günü pastası, sevdiklerinizle birlikte geçireceğiniz özel bir anı kutlamak için mükemmel bir yoldur. 
+                    Hem görsel olarak etkileyici hem de lezzetli bir deneyim sunarak, kutlamalarınıza mutluluk ve coşku katar.</p>
+                    <span>549,99₺</span>
+                </div>
+            </a>
+            <a href="#" class="box">
+                <img src="kalp.png" alt="">
+                <div class="content">
+                    <h3>Kalp Atışı</h3>
+                    <p>Orman meyveli pastalarımızı hazırlarken en taze ve doğal meyveleri kullanıyoruz.
+                    Çilek, ahududu, böğürtlen, yaban mersini ve frenk üzümü gibi birçok farklı meyvenin harmanıyla zengin bir lezzet sunar.</p>
+                    <span>549,99₺</span>
+                </div>
+            </a>
+            <a href="#" class="box">
+                <img src="serce.png" alt="">
+                <div class="content">
+                    <h3>Serçeçik</h3>
+                    <p>Komik bir pasta, sadece lezzetli değil, aynı zamanda eğlenceli bir sunum da sunar. 
+                    İnsanları gülümseten ve kutlamaya neşe katan bir pasta, herkesin keyif alacağı bir deneyim sunar.</p>
+                    <span>549,99₺</span>
+                </div>
+            </a>
+            <a href="#" class="box">
+                <img src="karakter.png" alt="">
+                <div class="content">
+                    <h3>Wednesday</h3>
+                    <p>Wednesday pastası genellikle en taze malzemelerle hazırlanır. 
+                    Taze meyveler, çikolata sosu, krema ve hafif kek tabanı gibi lezzetli bileşenler, pastanın her diliminde tatlı bir zevk sunar.</p>
+                    <span>549,99₺</span>
+                </div>
+            </a>
+            <a href="#" class="box">
+                <img src="blue.png" alt="">
+                <div class="content">
+                    <h3>Blue City</h3>
+                    <p>İtalyan kremalı pasta, özel günlerde veya kutlamalarda sunulması için mükemmel bir seçenektir. 
+                    Doğum günleri, düğünler, yıl dönümleri veya romantik akşam yemekleri için ideal bir tatlıdır.</p>
+                    <span>549,99₺</span>
+                </div>
+            </a>
+            <a href="#" class="box">
+                <img src="fruit.png" alt="">
+                <div class="content">
+                    <h3>Meyveli Pasta</h3>
+                    <p>Meyveli pasta, tazelik, lezzet ve görsel çekicilik arayan herkes için bir zevk şöleni sunar. 
+                    Her dilimde birinci sınıf tatlarla dolu olan bu muhteşem tatlı, herkesin damak zevkine hitap eder.</p>
+                    <span>549,99₺</span>
+                </div>
+            </a>
+            <a href="#" class="box">
+                <img src="limon.png" alt="">
+                <div class="content">
+                    <h3>Limonlu Ekler</h3>
+                    <p>Yumuşacık hamuru, içi limonlu krema dolgulu üstü limonlu ganaj ve beyaz çikolata ile sizleri bekliyor.</p>
+                    <span>149,99₺</span>
+                </div>
+            </a>
+            <a href="#" class="box">
+                <img src="cilek.png" alt="">
+                <div class="content">
+                    <h3>Çilekli Ekler</h3>
+                    <p>Yumuşacık hamuru, içi taze çilekli kreması, üstü beyaz çikolatali sevimli süsleme sekerleri sizi lezet kesifine çağırıyor.</p>
+                    <span>149,99₺</span>
+                </div>
+            </a>
+            <a href="#" class="box">
+                <img src="kakao.png" alt="">
+                <div class="content">
+                    <h3>Kakaolu Ekler</h3>
+                    <p>Kakaolu ekler, kabarık hamuruyla dikkat çeken, içi genellikle krem veya çikolata dolgulu, çikolata sosuyla kaplanan bir tatlıdır.</p>
+                    <span>149,99₺</span>
+                </div>
+            </a>
+            <a href="#" class="box">
+                <img src="lotus.png" alt="">
+                <div class="content">
+                    <h3>Lotuslu Ekler</h3>
+                    <p>Yumuşacık hamuru, lotuslu kreması, üstü vanilya ganajli ve lotus parcaciklari ile sizi çocukluğunuza yolculuk edeceksiniz.</p>
+                    <span>149,99₺</span>
+                </div>
+            </a>
+            <a href="#" class="box">
+                <img src="antep.png" alt="">
+                <div class="content">
+                    <h3>Antep Fıstıklı Ekler</h3>
+                    <p>Yumuşacık hamuru antep fıstıklı kreması, üstü beyaz çikolatali ve Antep fıstıklıları ile sizlere unutulmaz bir deneyim sunar.</p>
+                    <span>149,99₺</span>
+                </div>
+            </a>
+            <a href="#" class="box">
+                <img src="dolgu.png" alt="">
+                <div class="content">
+                    <h3>Karamelli Yer Fıstığı Dolgusu Ekler</h3>
+                    <p>Yumuşacık hamuru, yer fıstıklı kreması, üstü çikolatali ve yer fıstıklıları ile size enerji verir.</p>
+                    <span>149,99₺</span>
+                </div>
+            </a>
+            <a href="#" class="box">
+                <img src="White Chocolate Mocha.png" alt="">
+                <div class="content">
+                    <h3>White Chocolate Mocha</h3>
+                    <p>Sütün içerisine beyaz çikolata eklenir ve karıştırılarak süt köpüğü elde edilir. Espresso bir fincana alınır ve üzerine süt köpüğü eklenir.</p>
+                    <span>89,99₺</span>
+                </div>
+            <a href="#" class="box">
+                <img src="americano.png" alt="">
+                <div class="content">
+                    <h3>Americano</h3>
+                    <p>Americano, kahvenin içime hazır en saf hallerinden biri olan espressonun su ilave edilerek 
+                    seyreltilmesiyle hazırlanan ve oldukça yaygın olarak tüketilen bir kahve türüdür.</p>
+                    <span>79,99₺</span>
+                </div>
+            </a>
+            <a href="#" class="box">
+                <img src="Cappuccino.png" alt="">
+                <div class="content">
+                    <h3>Cappuccino</h3>
+                    <p>Cappuccino, eşit oranda espresso, süt buharı ve süt köpüğünden oluşan üç katmanlı bir içecektir. 
+                    Üstünde yoğun bir süt köpüğü bulunur ve daha küçük bir fincan veya bardakta servis edilir.</p>
+                    <span>79,99₺</span>
+                </div>
+            </a>
+            <a href="#" class="box">
+                <img src="latte.png" alt="">
+                <div class="content">
+                    <h3>Latte</h3>
+                    <p>Espresso, kupaya eklenir üstüne süt ve süt kreması eklenir. Genellikle ince ve uzun bardakta servis edilir.</p>
+                    <span>79,99₺</span>
+                </div>
+            </a>
+            <a href="#" class="box">
+                <img src="damla cikolata.png" alt="">
+                <div class="content">
+                    <h3>Damla Çikolatalı Kurabiye</h3>
+                    <p>Kıyır kıyır hamuru ve damla çikolatası ile sizleri konfor alanınıza götürecek.</p>
+                    <span>99,99₺</span>
+                </div>
+            </a>
+            <a href="#" class="box">
+                <img src="frambuaz.png" alt="">
+                <div class="content">
+                    <h3>Frambuazlı Kalp Kurabiye</h3>
+                    <p>Kıyır kıyır hamuru, frambuazlı reçeli ve üstü pudra şekeri kaplaması ile kalpleriniz ısıtacak.</p>
+                    <span>99,99₺</span>
+                </div>
+            </a>
+            <a href="#" class="box">
+                <img src="pudra.png" alt="">
+                <div class="content">
+                    <h3>Pudra Kalpli</h3>
+                    <p>Kıyır kıyır hamuru, içi fındık parçalı ve üstü pudra şekeri serpilmiş bir lezzet.</p>
+                    <span>99,99₺</span>
+                </div>
+            </a>
+            <a href="#" class="box">
+                <img src="findikkiran.png" alt="">
+                <div class="content">
+                    <h3>Fındıkkıran</h3>
+                    <p>Kıyır kıyır hamuru, içi fındık parçaları ve damla çikolatası ile sizlere lezzet şöleni sunuyoruz.</p>
+                    <span>99,99₺</span>
+                </div>
+            </a>
+            <a href="#" class="box">
+                <img src="simit.png" alt="">
+                <div class="content">
+                    <h3>Simitela</h3>
+                    <p>Kıyır kıyır hamuru üstü susam ve çörek otu doyurucu bir lezzet sizleri bekliyor.</p>
+                    <span>99,99₺</span>
+                </div>
+            </a>            <a href="#" class="box">
+                <img src="otlu.png" alt="">
+                <div class="content">
+                    <h3>Otlu kurabiye</h3>
+                    <p>Kıyır kıyır hamuru içi dere otlu üstü susmaları ile sizleri doyurucu bir ara öğününüz olacak.</p>
+                    <span>99,99₺</span>
+                </div>
+            </a>
+            </a>
+        </div>
+    </section>
+
+
+
+    <!--footer section-->
+    <section class="footer">
+
+        <div class="box-container">
+    
+            <div class="box">
+                <h3>Şubelerimiz</h3>
+                <a href="#"> <i class="fas fa-arrow-right"></i> Öztepe Şube İzmir/Türkiye </a>
+                <a href="#"> <i class="fas fa-arrow-right"></i> Akevler Şube İzmir/Türkiye</a>
+                <a href="#"> <i class="fas fa-arrow-right"></i> Pazaryeri Şube İzmir/Türkiye </a>
+                <a href="#"> <i class="fas fa-arrow-right"></i> Gaziemir Şube İzmir/Türkiye</a>
+            </div>
+    
+            <div class="box">
+                <h3>Hızlı Linklerimiz</h3>
+                <a href="#"> <i class="fas fa-arrow-right"></i> Ana Sayfa </a>
+                <a href="#"> <i class="fas fa-arrow-right"></i> Hakkımızda </a>
+                <a href="#"> <i class="fas fa-arrow-right"></i> Menü </a>
+                <a href="#"> <i class="fas fa-arrow-right"></i> Özel Gün Pastalarımız</a>
+                <a href="#"> <i class="fas fa-arrow-right"></i> Diğer </a>
+            </div>
+    
+            <div class="box">
+                <h3>İletişim Bilgileri</h3>
+                <a href="#"> <i class="fas fa-phone"></i> 0232-250-89-10 </a>
+                <a href="#"> <i class="fas fa-phone"></i> 0232-232-44-90 </a>
+                <a href="#"> <i class="fas fa-envelope"></i> Karasalihogulları.bakery@gmail.com </a>
+            </div>
+    
+            <div class="box">
+                <h3>Sosyal Medyda Hesaplarımız</h3>
+                <a href="#"> <i class="fab fa-facebook-f"></i> facebook </a>
+                <a href="#"> <i class="fab fa-twitter"></i> twitter </a>
+                <a href="#"> <i class="fab fa-instagram"></i> instagram </a>
+                <a href="#"> <i class="fab fa-linkedin"></i> linkedin </a>
+            </div>
+    
+        </div>
+    
+        <div class="credit"><span>Karasalihoğulları<i class="fas fa-mug-hot"></i>Bakery</span> Her Hakkı Saklıdır</div>
+    
+    </section>
+    
+    <!-- footer section ends -->
+    
+    <!--swiper js link-->
+    <script src="https://unpkg.com/swiper@8/swiper-bundle.min.js"></script>
+    
+    <script>
+    var swiper = new Swiper(".review-slider", {
+        spaceBetween: 20,
+        pagination: {
+          el: ".swiper-pagination",
+          clickable: true,
+        },
+        loop : true,
+        grabCursor: true,
+        autoplay: {
+            delay: 7500,
+            disableOnInteraction: false,
+        },
+        breakpoints: {
+            0: {
+              slidesPerView: 1,
+            },
+            768: {
+              slidesPerView: 2,
+            },
+        },
+    });
+    </script>
+    
+
+<!--custom js file link-->
+<script src="js/script.js"></script>
+
+<script>
+    window.onload = function () {
+        let menu = document.querySelector('#menu-btn');
+        let navbar = document.querySelector('.navbar');
+
+        menu.onclick = () => {
+            menu.classList.toggle('fa-times');
+            navbar.classList.toggle('active');
+        }
+
+        window.onscroll = () => {
+            menu.classList.remove('fa-times');
+            navbar.classList.remove('active');
+        }
+
+        var swiper = new Swiper(".review-slider", {
+            spaceBetween: 20,
+            pagination: {
+                el: ".swiper-pagination",
+                clickable: true,
+            },
+            loop: true,
+            grabCursor: true,
+            autoplay: {
+                delay: 7500,
+                disableOnInteraction: false,
+            },
+            breakpoints: {
+                0: {
+                    slidesPerView: 1,
+                },
+                768: {
+                    slidesPerView: 2,
+                },
+            },
+        });
+
+        const imageSlider = new Swiper(".image-slider", {
+            navigation: {
+                nextEl: ".swiper-button-next",
+                prevEl: ".swiper-button-prev",
+            },
+        });
+
+        // Ana görseli tıklanabilir yap
+        document.querySelectorAll('.image-slider img').forEach(image => {
+            image.addEventListener('click', function () {
+                const src = image.getAttribute('src');
+                document.querySelector('.main-home-image').src = src;
+            });
+        });
+
+        // Swiper kaydırıcısındaki herhangi bir slayda geçildiğinde
+        // ana görseli güncellemek için olay dinleyicisi ekle
+        imageSlider.on('slideChange', function () {
+            // Aktif slaydın indeksini al
+            const activeIndex = imageSlider.activeIndex;
+            // Tüm slayd resimlerini seç
+            const slides = document.querySelectorAll('.image-slider img');
+            // Ana görseli seçilen slaydın resmi ile güncelle
+            document.querySelector('.main-home-image').src = slides[activeIndex].src;
+        });
+    };
+</script>
+
+
+</body>
+</html>
